@@ -1,88 +1,74 @@
-import {
-  Box,
-  Typography,
-  Grid,
-  TextField,
-  Button,
-  Paper,
-} from '@mui/material';
+import { Container, Typography, Box, Grid, TextField, Button } from '@mui/material';
+import contactImage from '../assets/images/contact/20943705.jpg'; 
 
-export default function ContactPage() {
+export default function Contact() {
   return (
-    <Box id="contact" sx={{ py: 6, px: { xs: 2, md: 6 }, backgroundColor: '#f9f9f9' }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Hubungi Kami
-      </Typography>
+    <Box id="contact" sx={{ py: 10, backgroundColor: '#f0f4f8', color: '#1a1a1a' }}>
+      <Container>
+        <Typography variant="h4" align="center" gutterBottom>
+          Kontak Kami
+        </Typography>
 
-      <Grid container spacing={4} sx={{ mt: 2 }}>
-        {/* Informasi Kontak */}
-        <Grid item xs={12} md={5}>
-          <Paper sx={{ p: 3 }}>
+        <Grid container spacing={4} alignItems="center" mt={4}>
+          {/* Gambar */}
+          <Grid item xs={12} md={6}>
+            {/* <Box
+              component="img"
+              src={contactImage}
+              alt="Contact us"
+              sx={{ width: '100%', height:'50%', borderRadius: 2, boxShadow: 3 }}
+            /> */}
+          </Grid>
+
+          {/* Form dan Info Kontak */}
+          <Grid item xs={12} md={6}>
             <Typography variant="h6" gutterBottom>
-              Informasi Kontak
+              Hubungi Tim MyERP
             </Typography>
-            <Typography variant="body1">
-              <strong>Alamat:</strong><br />
-              Jl. Contoh No. 123, Jakarta, Indonesia
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 2 }}>
-              <strong>Telepon:</strong><br />
-              (021) 1234-5678
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 2 }}>
-              <strong>Email:</strong><br />
-              info@contohperusahaan.com
+            <Typography paragraph>
+              Kami siap menjawab pertanyaan Anda dan memberikan informasi lebih lanjut. Silakan isi formulir berikut atau hubungi kami melalui informasi kontak di bawah.
             </Typography>
 
-            {/* Google Maps */}
-            <Box sx={{ mt: 3 }}>
-              <iframe
-                title="Lokasi Kami"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.215346714808!2d106.82715331431244!3d-6.229728162745398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3d7b384d6ed%3A0x80c6cce0a99f3d7d!2sMonas!5e0!3m2!1sid!2sid!4v1616939476471!5m2!1sid!2sid"
-                width="100%"
-                height="200"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe>
+            <Box component="form" sx={{ mt: 2 }} noValidate autoComplete="off">
+              <TextField
+                label="Nama"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <TextField
+                label="Email"
+                type="email"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <TextField
+                label="Pesan"
+                variant="outlined"
+                fullWidth
+                multiline
+                rows={4}
+                margin="normal"
+              />
+              <Button variant="contained" sx={{ mt: 2 }}>
+                Kirim Pesan
+              </Button>
             </Box>
-          </Paper>
-        </Grid>
 
-        {/* Formulir Kontak */}
-        <Grid item xs={12} md={7}>
-          <Paper sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              Kirim Pesan
-            </Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField fullWidth label="Nama Anda" variant="outlined" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField fullWidth label="Email" variant="outlined" />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField fullWidth label="Subjek" variant="outlined" />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Pesan"
-                  variant="outlined"
-                  multiline
-                  rows={5}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary">
-                  Kirim Pesan
-                </Button>
-              </Grid>
-            </Grid>
-          </Paper>
+            <Box sx={{ mt: 4 }}>
+              <Typography variant="subtitle1">Alamat:</Typography>
+              <Typography variant="body2">
+                Jl. ERP Solution No. 45, Jakarta Selatan, Indonesia
+              </Typography>
+              <Typography variant="subtitle1" sx={{ mt: 2 }}>Email:</Typography>
+              <Typography variant="body2">support@myerp.co.id</Typography>
+              <Typography variant="subtitle1" sx={{ mt: 2 }}>Telepon:</Typography>
+              <Typography variant="body2">+62 812-3456-7890</Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </Box>
   );
 }

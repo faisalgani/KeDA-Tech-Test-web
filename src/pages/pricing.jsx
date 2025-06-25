@@ -46,7 +46,7 @@ export default function ProductTiers() {
               minWidth: isMobile ? 280 : 300,
               maxWidth: 320,
               flexShrink: 0,
-              border: tier.highlight ? '2px solid #673ab7' : '1px solid #ccc',
+              border: tier.highlight ? '2px solid #1c76d2' : '1px solid #ccc',
               boxShadow: tier.highlight ? 4 : 1,
               position: 'relative',
             }}
@@ -54,7 +54,7 @@ export default function ProductTiers() {
             {tier.highlight && (
               <Chip
                 label="TERPOPULER"
-                color="secondary"
+                color="primary"
                 size="small"
                 sx={{
                   position: 'absolute',
@@ -82,7 +82,7 @@ export default function ProductTiers() {
                   variant="body2"
                   sx={{ fontWeight: 400 }}
                 >
-                  /bln
+                  /bulan
                 </Typography>
               </Typography>
 

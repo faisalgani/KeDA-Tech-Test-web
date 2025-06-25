@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -7,8 +7,13 @@ import {
   Box,
 } from '@mui/material';
 
+import AuthModal from '../components/auth';
+
 export default function NavBar({ onNavigate }) {
+  const [openAuth, setOpenAuth] = useState(false);
+
   return (
+     <>
     <AppBar position="fixed" color="primary">
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Typography variant="h6" sx={{ cursor: 'pointer' }} onClick={() => onNavigate('all')}>
@@ -19,6 +24,7 @@ export default function NavBar({ onNavigate }) {
           <Button color="inherit" onClick={() => onNavigate('pricing')}>Pricing</Button>
           <Button color="inherit" onClick={() => onNavigate('contact')}>Contact</Button>
           <Button
+            onClick={() => setOpenAuth(true)}
             variant="outlined"
             sx={{
               borderColor: '#ffffff',
@@ -34,6 +40,9 @@ export default function NavBar({ onNavigate }) {
           </Button>
         </Box>
       </Toolbar>
+
+      <AuthModal open={openAuth} onClose={() => setOpenAuth(false)} />
     </AppBar>
+    </>
   );
 }
